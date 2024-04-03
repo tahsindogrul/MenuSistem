@@ -1,0 +1,50 @@
+﻿@model MenuSistem.Models.KategoriUrunViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/MainLayout.cshtml";
+}
+
+
+
+<div class="row justify-content-center mt-2">
+    <div class="col-md-8">
+        <div class="table-responsive">
+            <h1 class="text-left mt-4"> KATEGORİLER </h1>
+            <table class="table table-bordered table-striped border-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Kategori Adı</th>
+                        <th scope="col" style="text-align: right;">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var kategori in Model.Kategoriler)
+                    {
+                        <tr>
+                            <td>@kategori.KategoriAd</td>
+                            <td class="text-right">
+                                <div class="d-flex justify-content-end">
+                                    <a href="@Url.Action("KategoriGetir", "Kategori", new { id = kategori.Kategoriid })" class="btn btn-primary ">Güncelle</a>
+                                  
+                                    <a href="@Url.Action("Sil", "Editor", new { id = kategori.Kategoriid })" class="btn btn-danger ">Sil</a>
+                                    <a href="@Url.Action("Index", "UrunYonet", new { id = kategori.Kategoriid })" class="btn btn-success ">Ürünleri Yönet</a>
+
+
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="/Kategori/KategoriEkle/" class="btn btn-primary">Yeni Kategori Ekle</a>
+            <div>
+                <a href="/Urun/UrunEkle/" class="btn btn-danger">Yeni Ürün Ekle</a>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+

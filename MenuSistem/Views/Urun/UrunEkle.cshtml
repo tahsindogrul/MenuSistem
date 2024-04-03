@@ -1,0 +1,52 @@
+﻿
+@model MenuSistem.Models.Entities.TBLURUNLER
+@{
+    ViewBag.Title = "UrunEkle";
+    Layout = "~/Views/MainLayout.cshtml";
+}
+
+
+
+<form class="form-group mt-5" method="post">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h2 class="text-center ">Ürün Ekle</h2>
+            <div class="form-group border border-dark rounded p-3">
+                <label class="bold-label">Ürün Adı</label>
+
+                <input type="text" class="form-control" name="Urunad" placeholder="Ürün Adı" required>
+            </div>
+
+            <div class="form-group border border-dark rounded p-3">
+                <label class="bold-label">Ürün Detayı</label>
+                <input type="text" class="form-control" name="UrunDetay" placeholder="Ürün Detayı" required>
+            </div>
+          
+            <div class="form-group border border-dark rounded p-3">
+                <label>Ürün Kategorisi</label>
+                @Html.DropDownListFor(m => m.TBLKATEGORİLER.Kategoriid, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group border border-dark rounded p-3">
+                <label class="bold-label">Ürün Fiyatı</label>
+                <input type="text" class="form-control" name="UrunFiyat" placeholder="Ürün Fiyatı" required>
+            </div>
+           
+            <div class="form-group border border-dark rounded p-3">
+                @Html.LabelFor(m => m.UrunGorsel)
+                <input type="file" name="UrunGorsel" class="form-control border-dark" />
+            </div>
+
+
+
+         
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <button class="btn btn-primary">  Ürün Ekle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
